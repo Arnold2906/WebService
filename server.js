@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const routeSistema = require("./routes/sistemaroute.js")  
+const port = process.env.PORT || 8000;
 
 var app = express();
 
@@ -16,6 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/productos', routeSistema);
 
 
-const server = app.listen(8000, function() {
+const server = app.listen(port, function() {
     console.log(`Listening http://localhost:${server.address().port}`);
   });
